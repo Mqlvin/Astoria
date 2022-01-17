@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "me.astoria.mixins",
+  "refmap": "mixins.astoria.json",
+  "verbose": true,
+  "mixins": [
+    "client.MixinMinecraft",
+    "menu.MixinMainMenu"
+  ]
+}

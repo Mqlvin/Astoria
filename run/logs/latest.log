@@ -1,0 +1,33 @@
+[13:35:12] [main/INFO]: Extra: [--tweakClass, me.astoria.mixins.Tweaker]
+[13:35:12] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/henry/.gradle/caches/minecraft/assets, --assetIndex, 1.8, --accessToken{REDACTED}, --version, 1.8.9, --tweakClass, me.astoria.mixins.Tweaker]
+[13:35:12] [main/INFO]: Loading tweak class name me.astoria.mixins.Tweaker
+[13:35:12] [main/INFO]: Using primary tweak class name me.astoria.mixins.Tweaker
+[13:35:12] [main/INFO]: Calling tweak class me.astoria.mixins.Tweaker
+[13:35:12] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.7.11 Source=file:/C:/Users/henry/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.7.11-SNAPSHOT/7a670207bdb97db418118ad1e9bb42424ff3776d/mixin-0.7.11-SNAPSHOT.jar Service=LaunchWrapper Env=UNKNOWN
+[13:35:12] [main/INFO]: FML platform manager could not load class cpw.mods.fml.relauncher.CoreModManager. Proceeding without FML support.
+[13:35:12] [main/INFO]: Compatibility level set to JAVA_8
+[13:35:12] [main/ERROR]: Mixin config mixins.astoria.json does not specify "minVersion" property
+[13:35:12] [main/INFO]: Loading tweak class name org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[13:35:12] [main/INFO]: Calling tweak class org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[13:35:13] [main/INFO]: Remapping refMap mixins.astoria.json using C:\Users\henry\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_stable\20\srgs\srg-mcp.srg
+[13:35:13] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:client.MixinMinecraft, name: me.astoria.mixins.client.MixinMinecraft
+[13:35:13] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:menu.MixinMainMenu, name: me.astoria.mixins.menu.MixinMainMenu
+[13:35:13] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[13:35:13] [main/INFO]: Mixing client.MixinMinecraft from mixins.astoria.json into net.minecraft.client.Minecraft
+[13:35:13] [main/INFO]: Mixing menu.MixinMainMenu from mixins.astoria.json into net.minecraft.client.gui.GuiMainMenu
+[13:35:14] [Client thread/ERROR]: Can't find the resource index file: .\assets\indexes\1.8.json
+[13:35:14] [Client thread/INFO]: Setting user: Player656
+[13:35:14] [Client thread/INFO]: (Session ID is token:FML:Player656)
+[13:35:14] [Client thread/INFO]: LWJGL Version: 2.9.3
+[13:35:15] [Client thread/INFO]: Reloading ResourceManager: Default
+[13:35:15] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[13:35:16] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[13:35:16] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[13:35:16] [Thread-7/INFO]: OpenAL initialized.
+[13:35:16] [Sound Library Loader/INFO]: Sound engine started
+[13:35:16] [Client thread/INFO]: Created: 512x512 textures-atlas
+[13:35:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.menu
+[13:35:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[13:35:24] [Client thread/INFO]: Stopping!
+[13:35:24] [Client thread/INFO]: SoundSystem shutting down...
+[13:35:25] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
