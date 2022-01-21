@@ -11,11 +11,12 @@ Astoria is a Minecraft PVP client, dedicated around ease of use, performance and
 ### Current Events
 | Event Name  | Description  | Parameters  |
 | ------------ | ------------ | ------------ |
+| **Client**  |   |   |
 | ClientInitialisedEvent  | Called once the Astoria intialisation has completed.  | N/A  |
-| **Input**  | ------------------------------------  | ------------------------------------  |
+| **Input**  |   |   |
 | LeftClickEvent  | Called when a left click is executed in-game.  | N/A  |
 | RightClickEvent  | Called when a right click is executed in-game.  | N/A  |
-| **Utility/Misc**  | ------------------------------------  | ------------------------------------  |
+| **Utility/Misc**  |   |   |
 | ToggleFullscreenEvent  | Called when the player toggles fullscreen.  | Boolean isNowFullscreen |
 
 
