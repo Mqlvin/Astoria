@@ -1,7 +1,7 @@
 invertYMouse:false
 mouseSensitivity:0.17605634
 fov:0.375
-gamma:1.0
+gamma:0.5
 saturation:0.0
 renderDistance:12
 guiScale:2
@@ -24,7 +24,7 @@ chatLinks:true
 chatLinksPrompt:true
 chatOpacity:1.0
 snooperEnabled:true
-fullscreen:false
+fullscreen:true
 enableVsync:false
 useVbo:true
 hideServerAddress:false

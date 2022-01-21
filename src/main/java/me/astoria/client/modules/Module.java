@@ -1,6 +1,6 @@
 package me.astoria.client.modules;
 
-public class Module {
+public abstract class Module {
     private String name; // Name of module.
     private String description; // Brief overview of module.
     private String version; // Development version of module.
@@ -25,18 +25,15 @@ public class Module {
         this.enabled = enabled;
     }
 
-    public void enable() {
-
-    }
-
-    public void disable() {
-
-    }
+    public abstract void enable();
+    public abstract void disable();
 
     public void toggle() {
         if(enabled) {
+            enabled = false;
             disable();
         } else {
+            enabled = true;
             enable();
         }
     }

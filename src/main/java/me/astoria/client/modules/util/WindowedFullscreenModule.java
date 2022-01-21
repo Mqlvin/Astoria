@@ -13,15 +13,13 @@ import org.lwjgl.opengl.DisplayMode;
 
 import java.awt.*;
 
-public class WindowedFullscreen extends Module {
-    private static Boolean enabled;
-
-    public WindowedFullscreen() {
+public class WindowedFullscreenModule extends Module {
+    public WindowedFullscreenModule() {
         super("WindowedFullscreen", "Allows support for multiple monitors with Minecraft.", "1.0.0", Category.UTIL, "hancin", "https://www.curseforge.com/members/hancin", "Mqlvin", "", "windowedfullscreen.", false);
     }
 
     @SubscribeEvent
-    public void toggleFullscreen(ToggleFullscreenEvent event) {
+    public void toggleFullscreen(ToggleFullscreenEvent event) { // todo: make this event only run if enabled
         try {
             if(event.isNowFullscreen()) {
                 System.setProperty("org.lwjgl.opengl.Window.undecorated", "true");
@@ -44,13 +42,10 @@ public class WindowedFullscreen extends Module {
     @Override
     public void enable() {
         Astoria.EVENT_BUS.register(this);
-        System.out.println("enabled " + this.getName());
-        enabled = true;
     }
 
     @Override
     public void disable() {
-        // need to unregister
-        enabled = false;
+        Astoria.EVENT_BUS.unregister(this);
     }
 }

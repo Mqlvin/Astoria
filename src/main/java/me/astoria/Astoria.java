@@ -11,10 +11,11 @@ package me.astoria;
 import me.astoria.api.hypixel.HypixelAPI;
 import me.astoria.api.hypixel.punishment.PunishmentInfo;
 import me.astoria.client.modules.ModuleManager;
-import me.astoria.event.Priority;
 import me.astoria.event.SubscribeEvent;
 import me.astoria.event.bus.EventBus;
-import me.astoria.event.impl.client.*;
+import me.astoria.event.impl.client.ClientInitialisedEvent;
+import me.astoria.event.impl.client.KeyPressEvent;
+import me.astoria.event.impl.client.KeyReleaseEvent;
 import me.astoria.io.DirectoryUtil;
 import me.astoria.log.Logger;
 import net.minecraft.client.Minecraft;
@@ -53,12 +54,13 @@ public class Astoria {
     @SubscribeEvent
     public void onLoad(ClientInitialisedEvent event) {
         Logger.log("Client successfully initialised. " + NAME + " (" + MINECRAFT_VERSION + "/" + VERSION + ")");
+
     }
 
     @SubscribeEvent
     public void onKeyDown(KeyPressEvent event) {
         if(event.getKeyCode() == Keyboard.KEY_RSHIFT) {
-            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("Open GUI."));
+            Astoria.MODULE_MANAGER.modules.get(1).toggle();
         }
     }
 
