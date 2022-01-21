@@ -24,7 +24,7 @@ Astoria is a Minecraft PVP client, dedicated around ease of use, performance and
 - [ ] Base Modules
 - [ ] Backend Module System
 - [ ] API Wrapper
-- [ ] Event System
+- [x] Event System
 - [ ] Notification System
 - [ ] GUI Framework
 - [ ] Main GUI
