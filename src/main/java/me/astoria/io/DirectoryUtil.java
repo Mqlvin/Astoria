@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class DirectoryUtil {
     public static final ArrayList<String> rootDirectories = new ArrayList<>(Arrays.asList("config", "modules", "private"));
-    public static final File root = new File(System.getProperty("user.dir") + "/orb");
+    public static final File root = new File(System.getProperty("user.dir") + "/astoria");
     public static Boolean safeGenerate(File directory) {
         if(directory.exists()) {
             return true;

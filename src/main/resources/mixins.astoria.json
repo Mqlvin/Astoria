@@ -5,7 +5,6 @@
   "refmap": "mixins.astoria.json",
   "verbose": true,
   "mixins": [
-    "client.MixinMinecraft",
-    "menu.MixinMainMenu"
+    "client.MixinMinecraft"
   ]
 }

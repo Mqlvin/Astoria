@@ -4,11 +4,12 @@ package me.astoria.util.http;
 import me.astoria.log.Logger;
 import me.astoria.log.Severity;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
 public class HttpClient {
-    public static String request(String url_) {
+    public static HttpResponse request(String url_) {
         try {
             URL url = new URL(url_);
             Scanner scanner = new Scanner(url.openStream());
@@ -16,10 +17,11 @@ public class HttpClient {
             while(scanner.hasNext()) {
                 builder.append(scanner.next());
             }
-            return builder.toString().replaceAll("<[^>]*>", "");
-        } catch(Exception e) {
-            Logger.report("An exception was thrown while requesting from the URL " + url_ + ". " + e, Severity.WARN);
-            return null;
+            return new HttpResponse(builder.toString().replaceAll("<[^>]*>", ""));
+        } catch(IOException e) {
+
+            Logger.report("An exception was thrown during HTTP request. " + e, Severity.WARN);
+            return new HttpResponse(e.toString());
         }
     }
 }

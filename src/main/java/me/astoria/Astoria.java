@@ -8,34 +8,76 @@
 
 package me.astoria;
 
+import me.astoria.api.hypixel.HypixelAPI;
+import me.astoria.api.hypixel.punishment.PunishmentInfo;
+import me.astoria.client.modules.ModuleManager;
+import me.astoria.event.Priority;
+import me.astoria.event.SubscribeEvent;
 import me.astoria.event.bus.EventBus;
-import me.astoria.event.impl.client.OnLoadEvent;
+import me.astoria.event.impl.client.*;
 import me.astoria.io.DirectoryUtil;
 import me.astoria.log.Logger;
-import me.astoria.util.wrapper.HypixelAPI;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.ChatComponentText;
+import org.lwjgl.input.Keyboard;
 
 public class Astoria {
     public static final String NAME = "Astoria";
-    public static final String VERSION = "b0.1";
+    public static final String VERSION = "b0.3";
     public static final String MINECRAFT_VERSION = "1.8.9";
 
-    private static final Astoria INSTANCE = new Astoria();
+    public static final Astoria INSTANCE = new Astoria();
 
-    private static EventBus EVENT_BUS = new EventBus();
+    public static EventBus EVENT_BUS = new EventBus();
+    public static ModuleManager MODULE_MANAGER = new ModuleManager();
+    private static HypixelAPI HYPIXEL_API;
 
     public Astoria() {
         Logger.log("Initialising...");
         DirectoryUtil.generateStructure();
     }
 
-    public static void initialise() {
-        Logger.log("Client successfully initialised. " + NAME + " (" + MINECRAFT_VERSION + "/" + VERSION + ")");
-        HypixelAPI api = new HypixelAPI("d8e7f0b1-6dcf-4a96-993c-8f11cf2fe15b");
+    public void initialise() {
+        EVENT_BUS.register(this);
+        Logger.log("Event bus has been initialised.");
+        HypixelAPI api = new HypixelAPI("", false);
+        System.out.println(api.getKey() + " " + api.getKeyStatus());
+
+        PunishmentInfo punishmentInfo = new PunishmentInfo();
+        System.out.println(punishmentInfo.getTotalBans());
+
+
+        Astoria.EVENT_BUS.call(new ClientInitialisedEvent());
     }
 
+    @SubscribeEvent
+    public void onLoad(ClientInitialisedEvent event) {
+        Logger.log("Client successfully initialised. " + NAME + " (" + MINECRAFT_VERSION + "/" + VERSION + ")");
+    }
 
-    public Astoria INSTANCE() {
-        return INSTANCE;
+    @SubscribeEvent
+    public void onKeyDown(KeyPressEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_RSHIFT) {
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("Open GUI."));
+        }
+    }
+
+    @SubscribeEvent
+    public void onKeyUp(KeyReleaseEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_RSHIFT) {
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("YOU WANT TO CLOSE SO MUCH L OL LMASOFMOFOA"));
+        }
+    }
+
+    @SubscribeEvent
+    public void onKeyDownD(KeyPressEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_RSHIFT && event.isRepeatEvent()) {
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("YOU STOP SPAMMING NOW!!!!!!!!"));
+        }
+    }
+
+    @SubscribeEvent
+    public void noParamEventLOL() {
+        System.out.println("do this");
     }
 }

@@ -1,51 +1,52 @@
 package me.astoria.event.bus;
 
-import me.astoria.Astoria;
+import me.astoria.event.Event;
 import me.astoria.event.SubscribeEvent;
-import me.astoria.event.impl.Event;
-import me.astoria.event.impl.client.OnLoadEvent;
 import me.astoria.log.Logger;
 import me.astoria.log.Severity;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class EventBus {
-    private HashMap<Class<? extends Event>, ArrayList<MethodPriority>> listeners = new HashMap<>();
+    private HashMap<Class<? extends Event>, CopyOnWriteArrayList<EventListener>> listeners = new HashMap<>();
 
-    public void register(Event event, Class listening) {
-        ArrayList<MethodPriority> currentMethods;
-        if(listeners.containsKey(event.getClass())) {
-            currentMethods = listeners.get(event.getClass());
-            for(Method method : listening.getMethods()) {
-                if(method.isAnnotationPresent(SubscribeEvent.class)) {
-                    currentMethods.add(new MethodPriority(listening, method, method.getAnnotation(SubscribeEvent.class).priority().getLevel()));
-                }
+    public void register(Object listener) {
+        for(Method method : listener.getClass().getDeclaredMethods()) {
+            if(!method.isAnnotationPresent(SubscribeEvent.class)) continue;
+            if(method.getParameterCount() == 0) continue;
+            SubscribeEvent subscribeEvent = method.getAnnotation(SubscribeEvent.class);
+
+            Class<? extends Event> event;
+            try {
+                event = (Class<? extends Event>) method.getParameters()[0].getType();
+            } catch(Exception e) {
+                Logger.report("Method " + method.getName() + " was annotated as an event, however it had no or an invalid event parameter.", Severity.WARN);
+                continue;
             }
-        } else {
-            currentMethods = new ArrayList<>();
-            for(Method method : listening.getMethods()) {
-                if(method.isAnnotationPresent(SubscribeEvent.class)) {
-                    currentMethods.add(new MethodPriority(listening, method, method.getAnnotation(SubscribeEvent.class).priority().getLevel()));
-                }
+            if(!listeners.containsKey(event)) {
+                listeners.put(event, new CopyOnWriteArrayList<>());
             }
+            listeners.get(event).add(new EventListener(listener, method, subscribeEvent.priority()));
+            listeners.get(event).sort(Comparator.comparingInt(listen -> listen.getPriority().getLevel()));
         }
-        // sort current mehtods
-        listeners.put(event.getClass(), currentMethods);
+    }
+
+    public void unregister(Object listener_) {
+        listeners.values().forEach(arr -> arr.removeIf(listener -> listener.getListener() == listener_));
     }
 
     public void call(Event event) {
         if(listeners.containsKey(event.getClass())) {
-            ArrayList<MethodPriority> methods = listeners.get(event.getClass());
-            for(MethodPriority method : methods) {
+            listeners.getOrDefault(event.getClass(), new CopyOnWriteArrayList<>()).forEach(method -> {
                 try {
-                    method.method.invoke(method.in);
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    Logger.report("Error while invoking method in event bus: " + e.toString(), Severity.FATAL);
+                    method.getMethod().invoke(method.getListener(), event);
+                } catch(Exception e) {
+                    Logger.report("Unable to execute method from class " + method.getListener().getClass().getName() + " during event system invocation. " + e, Severity.FATAL);
                 }
-            }
+            });
         }
     }
 }

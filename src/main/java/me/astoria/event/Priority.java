@@ -1,11 +1,11 @@
 package me.astoria.event;
 
 public enum Priority {
-    LOWEST(0),
-    LOW(1),
+    LOWEST(4),
+    LOW(3),
     NORMAL(2),
-    HIGH(3),
-    HIGHEST(4);
+    HIGH(1),
+    HIGHEST(0);
 
     private final int level;
     Priority(int level) {
