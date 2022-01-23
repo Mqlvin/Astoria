@@ -28,12 +28,10 @@ public class Tweaker implements ITweaker {
             launchArguments.add("--version");
             launchArguments.add(profile);
         }
-
         if(!args.contains("--assetDir") && assetsDir != null) {
             launchArguments.add("--assetDir");
             launchArguments.add(assetsDir.getAbsolutePath());
         }
-
         if(!args.contains("--gameDir") && gameDir != null) {
             launchArguments.add("--gameDir");
             launchArguments.add(gameDir.getAbsolutePath());
@@ -46,17 +44,15 @@ public class Tweaker implements ITweaker {
 
         MixinEnvironment env = MixinEnvironment.getDefaultEnvironment();
         Mixins.addConfiguration("mixins.astoria.json");
-
         if(env.getObfuscationContext() == null) {
             env.setObfuscationContext("notch");
         }
-
         env.setSide(MixinEnvironment.Side.CLIENT);
     }
 
     @Override
     public String getLaunchTarget() {
-        return "net.minecraft.client.main.Main";
+        return MixinBootstrap.getPlatform().getLaunchTarget();
     }
 
     @Override

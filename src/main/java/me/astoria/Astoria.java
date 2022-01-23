@@ -60,26 +60,16 @@ public class Astoria {
     @SubscribeEvent
     public void onKeyDown(KeyPressEvent event) {
         if(event.getKeyCode() == Keyboard.KEY_RSHIFT) {
-            Astoria.MODULE_MANAGER.modules.get(1).toggle();
+            Astoria.MODULE_MANAGER.modules.get(0).toggle();
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(Astoria.MODULE_MANAGER.modules.get(0).getEnabled().toString() + " new state."));
         }
     }
 
     @SubscribeEvent
-    public void onKeyUp(KeyReleaseEvent event) {
-        if(event.getKeyCode() == Keyboard.KEY_RSHIFT) {
-            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("YOU WANT TO CLOSE SO MUCH L OL LMASOFMOFOA"));
+    public void onKeyDownJ(KeyPressEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_J) {
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("§a§lDumping client info: "));
+            EVENT_BUS.getAllListeners().forEach(listener -> Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(listener.getListener().getClass().getName())));
         }
-    }
-
-    @SubscribeEvent
-    public void onKeyDownD(KeyPressEvent event) {
-        if(event.getKeyCode() == Keyboard.KEY_RSHIFT && event.isRepeatEvent()) {
-            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("YOU STOP SPAMMING NOW!!!!!!!!"));
-        }
-    }
-
-    @SubscribeEvent
-    public void noParamEventLOL() {
-        System.out.println("do this");
     }
 }

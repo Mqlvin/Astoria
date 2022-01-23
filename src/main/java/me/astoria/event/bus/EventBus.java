@@ -6,6 +6,7 @@ import me.astoria.log.Logger;
 import me.astoria.log.Severity;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -48,5 +49,14 @@ public class EventBus {
                 }
             });
         }
+    }
+
+    public ArrayList<EventListener> getAllListeners() {
+        ArrayList<EventListener> eventListenerReturn = new ArrayList<>();
+        if(listeners == null || listeners.values().size() == 0) {
+            return eventListenerReturn;
+        }
+        listeners.values().forEach(eventListenerReturn::addAll);
+        return eventListenerReturn;
     }
 }

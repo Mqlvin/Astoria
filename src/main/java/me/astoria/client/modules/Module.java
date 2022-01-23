@@ -30,10 +30,8 @@ public abstract class Module {
 
     public void toggle() {
         if(enabled) {
-            enabled = false;
             disable();
         } else {
-            enabled = true;
             enable();
         }
     }
@@ -74,7 +72,11 @@ public abstract class Module {
         return saveKey;
     }
 
-    public Boolean getState() {
+    public void setEnabled(Boolean isEnabled) {
+        enabled = isEnabled;
+    }
+
+    public Boolean getEnabled() {
         return enabled;
     }
 }

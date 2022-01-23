@@ -11,7 +11,7 @@ public class FullbrightModule extends Module {
 
     @Override
     public void enable() {
-        Minecraft.getMinecraft().gameSettings.gammaSetting = 20.0f;
+        Minecraft.getMinecraft().gameSettings.gammaSetting = 50.0f;
     }
 
     @Override

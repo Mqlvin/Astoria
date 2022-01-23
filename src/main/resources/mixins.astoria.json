@@ -5,6 +5,7 @@
   "refmap": "mixins.astoria.json",
   "verbose": true,
   "mixins": [
-    "client.MixinMinecraft"
+    "client.MixinMinecraft",
+    "entity.MixinEntityPlayerSP"
   ]
 }
