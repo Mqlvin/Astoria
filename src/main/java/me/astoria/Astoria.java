@@ -1,9 +1,21 @@
 /*
----------------------------------------
-* Created: b0.1 - 14/01/2022
-* Author(s): [Henry]
-* License:
----------------------------------------
+--------------------------------------------------------------------
+Copyright (C) 2021-2022 by Mqlvin | Contact: %%license_contact%%
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------
+Description: Main class called at startup, holds instances for the client, handles initialisation and shutdown of client.
+Authors: [Mqlvin/melvinkelvin#6328]
+Modified: b0.3
+--------------------------------------------------------------------
 */
 
 package me.astoria;
@@ -15,7 +27,6 @@ import me.astoria.event.SubscribeEvent;
 import me.astoria.event.bus.EventBus;
 import me.astoria.event.impl.client.ClientInitialisedEvent;
 import me.astoria.event.impl.client.KeyPressEvent;
-import me.astoria.event.impl.client.KeyReleaseEvent;
 import me.astoria.io.DirectoryUtil;
 import me.astoria.log.Logger;
 import net.minecraft.client.Minecraft;
@@ -24,7 +35,7 @@ import org.lwjgl.input.Keyboard;
 
 public class Astoria {
     public static final String NAME = "Astoria";
-    public static final String VERSION = "b0.3";
+    public static final String VERSION = "b0.4";
     public static final String MINECRAFT_VERSION = "1.8.9";
 
     public static final Astoria INSTANCE = new Astoria();
