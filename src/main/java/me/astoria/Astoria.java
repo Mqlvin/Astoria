@@ -27,11 +27,17 @@ import me.astoria.event.SubscribeEvent;
 import me.astoria.event.bus.EventBus;
 import me.astoria.event.impl.client.ClientInitialisedEvent;
 import me.astoria.event.impl.client.KeyPressEvent;
+import me.astoria.event.impl.client.KeyReleaseEvent;
+import me.astoria.event.impl.entity.ChatReceivedEvent;
+import me.astoria.event.impl.entity.PlayerChatEvent;
 import me.astoria.io.DirectoryUtil;
+import me.astoria.io.ModuleConfig;
 import me.astoria.log.Logger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import org.lwjgl.input.Keyboard;
+
+import java.security.Key;
 
 public class Astoria {
     public static final String NAME = "Astoria";
@@ -52,20 +58,21 @@ public class Astoria {
     public void initialise() {
         EVENT_BUS.register(this);
         Logger.log("Event bus has been initialised.");
-        HypixelAPI api = new HypixelAPI("", false);
-        System.out.println(api.getKey() + " " + api.getKeyStatus());
 
-        PunishmentInfo punishmentInfo = new PunishmentInfo();
-        System.out.println(punishmentInfo.getTotalBans());
-
+        ModuleConfig moduleConfig = new ModuleConfig("test");
 
         Astoria.EVENT_BUS.call(new ClientInitialisedEvent());
+    }
+
+    public void shutdown() {
+        Logger.log("Client beginning shutdown.");
+        MODULE_MANAGER.saveAll();
+        EVENT_BUS.unregister(this);
     }
 
     @SubscribeEvent
     public void onLoad(ClientInitialisedEvent event) {
         Logger.log("Client successfully initialised. " + NAME + " (" + MINECRAFT_VERSION + "/" + VERSION + ")");
-
     }
 
     @SubscribeEvent
@@ -81,6 +88,42 @@ public class Astoria {
         if(event.getKeyCode() == Keyboard.KEY_J) {
             Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("§a§lDumping client info: "));
             EVENT_BUS.getAllListeners().forEach(listener -> Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText(listener.getListener().getClass().getName())));
+        }
+    }
+
+    @SubscribeEvent
+    public void onKeyDownZoom(KeyPressEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_R) {
+            Minecraft.getMinecraft().gameSettings.fovSetting = 20.0f;
+            Minecraft.getMinecraft().gameSettings.smoothCamera = true;
+        }
+    }
+
+    @SubscribeEvent
+    public void onKeyUpZoom(KeyReleaseEvent event) {
+        if(event.getKeyCode() == Keyboard.KEY_R) {
+            Minecraft.getMinecraft().gameSettings.fovSetting = 85.0f;
+            Minecraft.getMinecraft().gameSettings.smoothCamera = false;
+        }
+    }
+
+    @SubscribeEvent
+    public void onChatMessageSent(PlayerChatEvent event) {
+        if(event.getMessage().startsWith("--")) {
+            Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("§a§lDumping client info: "));
+        } else if(event.getMessage().startsWith("abc")) {
+            event.setMessage("123");
+        } else {
+            event.setMessage(event.getMessage().replace(":)", "☻"));
+        }
+    }
+
+    @SubscribeEvent
+    public void onChatMessageReceived(ChatReceivedEvent event) {
+        if(event.getMessage().getUnformattedText().startsWith("§a§lDumping client")) {
+            event.setMessage(new ChatComponentText("WORKING BY THAE WAY WOW"));
+        } else if(event.getMessage().getUnformattedText().contains("123")) {
+            event.cancel();
         }
     }
 }

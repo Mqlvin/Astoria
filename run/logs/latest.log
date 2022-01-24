@@ -1,60 +1,59 @@
-[21:30:43] [main/INFO]: Extra: [--tweakClass, me.astoria.mixins.Tweaker]
-[21:30:43] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/henry/.gradle/caches/minecraft/assets, --assetIndex, 1.8, --accessToken{REDACTED}, --version, 1.8.9, --tweakClass, me.astoria.mixins.Tweaker]
-[21:30:43] [main/INFO]: Loading tweak class name me.astoria.mixins.Tweaker
-[21:30:43] [main/INFO]: Using primary tweak class name me.astoria.mixins.Tweaker
-[21:30:43] [main/INFO]: Calling tweak class me.astoria.mixins.Tweaker
-[21:30:43] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.7.11 Source=file:/C:/Users/henry/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.7.11-SNAPSHOT/7a670207bdb97db418118ad1e9bb42424ff3776d/mixin-0.7.11-SNAPSHOT.jar Service=LaunchWrapper Env=UNKNOWN
-[21:30:44] [main/INFO]: FML platform manager could not load class cpw.mods.fml.relauncher.CoreModManager. Proceeding without FML support.
-[21:30:44] [main/INFO]: Compatibility level set to JAVA_8
-[21:30:44] [main/ERROR]: Mixin config mixins.astoria.json does not specify "minVersion" property
-[21:30:44] [main/INFO]: Loading tweak class name org.spongepowered.asm.mixin.EnvironmentStateTweaker
-[21:30:44] [main/INFO]: Calling tweak class org.spongepowered.asm.mixin.EnvironmentStateTweaker
-[21:30:44] [main/INFO]: Remapping refMap mixins.astoria.json using C:\Users\henry\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_stable\20\srgs\srg-mcp.srg
-[21:30:44] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:client.MixinMinecraft, name: me.astoria.mixins.client.MixinMinecraft
-[21:30:44] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:entity.MixinEntityPlayerSP, name: me.astoria.mixins.entity.MixinEntityPlayerSP
-[21:30:44] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[21:30:44] [main/INFO]: Mixing client.MixinMinecraft from mixins.astoria.json into net.minecraft.client.Minecraft
-[21:30:44] [main/INFO]: Mixing entity.MixinEntityPlayerSP from mixins.astoria.json into net.minecraft.client.entity.EntityPlayerSP
-[21:30:45] [Client thread/INFO]: Setting user: Player640
-[21:30:45] [Client thread/INFO]: (Session ID is token:FML:Player640)
-[21:30:46] [Client thread/INFO]: LWJGL Version: 2.9.3
-[21:30:46] [Client thread/INFO]: Reloading ResourceManager: Default, !     §3azura §8[§f16x§8] §3ocean
-[21:30:46] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[21:30:47] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[21:30:47] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[21:30:47] [Thread-7/INFO]: OpenAL initialized.
-[21:30:47] [Sound Library Loader/INFO]: Sound engine started
-[21:30:48] [Client thread/INFO]: Created: 512x512 textures-atlas
-[21:30:52] [Server thread/INFO]: Starting integrated minecraft server version 1.8.9
-[21:30:52] [Server thread/INFO]: Generating keypair
-[21:30:52] [Server thread/INFO]: Preparing start region for level 0
-[21:30:53] [Server thread/INFO]: Changing view distance to 12, from 10
-[21:30:53] [Server thread/INFO]: Player640[local:E:eb486798] logged in with entity id 279 at (844.1873626044598, 63.0, 265.0139660550216)
-[21:30:53] [Server thread/INFO]: Player640 joined the game
-[21:30:54] [Server thread/INFO]: Saving and pausing game...
-[21:30:54] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[21:30:54] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[21:30:54] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[21:30:55] [Client thread/INFO]: [CHAT] §a§lDumping client info: 
-[21:30:55] [Client thread/INFO]: [CHAT] me.astoria.Astoria
-[21:30:55] [Client thread/INFO]: [CHAT] me.astoria.Astoria
-[21:30:55] [Client thread/INFO]: [CHAT] me.astoria.Astoria
-[21:30:55] [Client thread/INFO]: [CHAT] me.astoria.client.modules.util.WindowedFullscreenModule
-[21:30:56] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[21:30:56] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[21:30:57] [Client thread/INFO]: [CHAT] false new state.
-[21:30:57] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[21:31:03] [Client thread/INFO]: [CHAT] true new state.
-[21:31:08] [Client thread/INFO]: [CHAT] false new state.
-[21:31:12] [Client thread/INFO]: [CHAT] true new state.
-[21:31:15] [Client thread/INFO]: [CHAT] false new state.
-[21:31:22] [Client thread/INFO]: [CHAT] true new state.
-[21:31:28] [Client thread/INFO]: Stopping!
-[21:31:28] [Client thread/INFO]: SoundSystem shutting down...
-[21:31:28] [Server thread/INFO]: Stopping server
-[21:31:28] [Server thread/INFO]: Saving players
-[21:31:28] [Server thread/INFO]: Saving worlds
-[21:31:28] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[21:31:28] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[21:31:28] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[21:31:28] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[21:07:48] [main/INFO]: Extra: [--tweakClass, me.astoria.mixins.Tweaker]
+[21:07:48] [main/INFO]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/henry/.gradle/caches/minecraft/assets, --assetIndex, 1.8, --accessToken{REDACTED}, --version, 1.8.9, --tweakClass, me.astoria.mixins.Tweaker]
+[21:07:48] [main/INFO]: Loading tweak class name me.astoria.mixins.Tweaker
+[21:07:48] [main/INFO]: Using primary tweak class name me.astoria.mixins.Tweaker
+[21:07:48] [main/INFO]: Calling tweak class me.astoria.mixins.Tweaker
+[21:07:49] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.7.11 Source=file:/C:/Users/henry/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.7.11-SNAPSHOT/7a670207bdb97db418118ad1e9bb42424ff3776d/mixin-0.7.11-SNAPSHOT.jar Service=LaunchWrapper Env=UNKNOWN
+[21:07:49] [main/INFO]: FML platform manager could not load class cpw.mods.fml.relauncher.CoreModManager. Proceeding without FML support.
+[21:07:49] [main/INFO]: Compatibility level set to JAVA_8
+[21:07:49] [main/ERROR]: Mixin config mixins.astoria.json does not specify "minVersion" property
+[21:07:49] [main/INFO]: Loading tweak class name org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[21:07:49] [main/INFO]: Calling tweak class org.spongepowered.asm.mixin.EnvironmentStateTweaker
+[21:07:49] [main/INFO]: Remapping refMap mixins.astoria.json using C:\Users\henry\.gradle\caches\minecraft\de\oceanlabs\mcp\mcp_stable\20\srgs\srg-mcp.srg
+[21:07:49] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:client.MixinMinecraft, name: me.astoria.mixins.client.MixinMinecraft
+[21:07:49] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:client.MixinGuiNewChat, name: me.astoria.mixins.client.MixinGuiNewChat
+[21:07:49] [main/ERROR]: Classloader restrictions [PACKAGE_CLASSLOADER_EXCLUSION] encountered loading mixins.astoria.json:entity.MixinEntityPlayerSP, name: me.astoria.mixins.entity.MixinEntityPlayerSP
+[21:07:49] [main/INFO]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[21:07:49] [main/INFO]: Mixing client.MixinMinecraft from mixins.astoria.json into net.minecraft.client.Minecraft
+[21:07:49] [main/INFO]: Mixing entity.MixinEntityPlayerSP from mixins.astoria.json into net.minecraft.client.entity.EntityPlayerSP
+[21:07:50] [Client thread/INFO]: Setting user: Player890
+[21:07:50] [Client thread/INFO]: (Session ID is token:FML:Player890)
+[21:07:51] [Client thread/INFO]: LWJGL Version: 2.9.3
+[21:07:52] [Client thread/INFO]: Reloading ResourceManager: Default, !     §3azura §8[§f16x§8] §3ocean
+[21:07:52] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[21:07:52] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[21:07:52] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:07:52] [Thread-7/INFO]: OpenAL initialized.
+[21:07:52] [Sound Library Loader/INFO]: Sound engine started
+[21:07:53] [Client thread/INFO]: Created: 512x512 textures-atlas
+[21:07:53] [Client thread/INFO]: Mixing client.MixinGuiNewChat from mixins.astoria.json into net.minecraft.client.gui.GuiNewChat
+[21:08:36] [Server thread/INFO]: Starting integrated minecraft server version 1.8.9
+[21:08:36] [Server thread/INFO]: Generating keypair
+[21:08:36] [Server thread/INFO]: Preparing start region for level 0
+[21:08:37] [Server thread/INFO]: Changing view distance to 12, from 10
+[21:08:37] [Server thread/INFO]: Player890[local:E:487b76a2] logged in with entity id 282 at (644.3392261760534, 65.0, 54.69290158200184)
+[21:08:37] [Server thread/INFO]: Player890 joined the game
+[21:08:38] [Server thread/INFO]: Saving and pausing game...
+[21:08:38] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[21:08:38] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[21:08:38] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[21:09:41] [Server thread/INFO]: <Player890> ☻
+[21:09:41] [Client thread/INFO]: [CHAT] <Player890> ☻
+[21:09:41] [Chunk Batcher 1/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
+[21:09:42] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
+[21:09:43] [Chunk Batcher 1/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
+[21:09:43] [Server thread/INFO]: <Player890> hello ☻
+[21:09:43] [Client thread/INFO]: [CHAT] <Player890> hello ☻
+[21:09:44] [Server thread/INFO]: Saving and pausing game...
+[21:09:44] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[21:09:44] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[21:09:44] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[21:09:45] [Server thread/INFO]: Stopping server
+[21:09:45] [Server thread/INFO]: Saving players
+[21:09:45] [Server thread/INFO]: Saving worlds
+[21:09:45] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[21:09:45] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[21:09:45] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[21:09:45] [Client thread/INFO]: Stopping!
+[21:09:45] [Client thread/INFO]: SoundSystem shutting down...
+[21:09:46] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

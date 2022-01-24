@@ -20,6 +20,7 @@ Modified: b0.2
 
 package me.astoria.io;
 
+import me.astoria.Astoria;
 import me.astoria.log.Logger;
 import me.astoria.log.Severity;
 
@@ -29,7 +30,7 @@ import java.util.Arrays;
 
 public class DirectoryUtil {
     public static final ArrayList<String> rootDirectories = new ArrayList<>(Arrays.asList("config", "modules", "private"));
-    public static final File root = new File(System.getProperty("user.dir") + "/astoria");
+    public static final File root = new File(System.getProperty("user.dir") + "/" + Astoria.NAME.toLowerCase());
     public static Boolean safeGenerate(File directory) {
         if(directory.exists()) {
             return true;
@@ -38,7 +39,7 @@ public class DirectoryUtil {
     }
 
     public static void generateStructure() {
-        Boolean failed = false;
+        Boolean failed;
         failed = safeGenerate(root);
         for(String dir : rootDirectories) {
             failed = DirectoryUtil.safeGenerate(new File(root + "/" + dir));
@@ -46,7 +47,14 @@ public class DirectoryUtil {
         if(!failed) {
             Logger.report("One or more directories were unable to generate.", Severity.FATAL);
         }
+    }
 
-
+    public static File getDir(String name) {
+        for(String dir : rootDirectories) {
+            if(dir.equalsIgnoreCase(name)) {
+                return new File(root + "/" + dir);
+            }
+        }
+        return null;
     }
 }

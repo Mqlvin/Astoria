@@ -48,6 +48,8 @@ public abstract class Module {
     public abstract void enable();
     public abstract void disable();
 
+    public abstract void shutdown();
+
     public void toggle() {
         if(enabled) {
             disable();

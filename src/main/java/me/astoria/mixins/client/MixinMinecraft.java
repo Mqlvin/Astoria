@@ -42,23 +42,28 @@ public class MixinMinecraft {
         Astoria.INSTANCE.initialise();
     }
 
+    @Inject(method = "shutdown", at = @At("HEAD"))
+    private void onGameShutdown(CallbackInfo ci) {
+        Astoria.INSTANCE.shutdown();
+    }
+
     @Inject(method = "clickMouse", at = @At("RETURN"))
     public void onLeftClick(CallbackInfo ci) {
         Astoria.EVENT_BUS.call(new LeftClickEvent());
     }
 
     @Inject(method = "rightClickMouse", at = @At("RETURN"))
-    public void onRightClick(CallbackInfo ci) {
+    private void onRightClick(CallbackInfo ci) {
         Astoria.EVENT_BUS.call(new RightClickEvent());
     }
 
     @Inject(method = "toggleFullscreen", at = @At("RETURN"))
-    public void onToggleFullscreen(CallbackInfo ci) {
+    private void onToggleFullscreen(CallbackInfo ci) {
         Astoria.EVENT_BUS.call(new ToggleFullscreenEvent(Minecraft.getMinecraft().isFullScreen()));
     }
 
     @Inject(method = "dispatchKeypresses", at = @At(value = "INVOKE_ASSIGN", target = "Lorg/lwjgl/input/Keyboard;getEventKeyState()Z"))
-    public void onKeyboardTick(CallbackInfo ci) {
+    private void onKeyboardTick(CallbackInfo ci) {
         Astoria.EVENT_BUS.call(Keyboard.getEventKeyState() ? new KeyPressEvent(Keyboard.getEventKey(), Keyboard.isRepeatEvent()) : new KeyReleaseEvent(Keyboard.getEventKey(), Keyboard.isRepeatEvent()));
     }
 }

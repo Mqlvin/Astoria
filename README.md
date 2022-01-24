@@ -87,6 +87,8 @@ Do not add modules to the client directly, unless you feel they are core mods wh
 | ------------ | ------------ | ------------ |
 | **Client**  |   |   |
 | ClientInitialisedEvent  | Called once the Astoria initialisation has completed.  | N/A  |
+| ChatReceivedEvent  | Called on the client receiving a chat message.  | IChatComponent message  |
+| PlayerChatEvent  | Called on a player sending a chat message.  | String message  |
 | **Input**  |   |   |
 | LeftClickEvent  | Called when a left click is executed in-game.  | N/A  |
 | RightClickEvent  | Called when a right click is executed in-game.  | N/A  |

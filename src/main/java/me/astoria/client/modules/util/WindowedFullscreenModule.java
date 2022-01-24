@@ -70,7 +70,7 @@ public class WindowedFullscreenModule extends Module {
                 Display.setResizable(true);
             }
         } catch(LWJGLException e) {
-            ModuleManager.report(this, e.toString(), Severity.WARN);
+            Astoria.MODULE_MANAGER.report(this, e.toString(), Severity.WARN);
         }
     }
 
@@ -86,7 +86,7 @@ public class WindowedFullscreenModule extends Module {
                 Display.setFullscreen(false);
                 Display.setResizable(false);
             } catch(LWJGLException e) {
-                ModuleManager.report(this, e.toString(), Severity.WARN);
+                Astoria.MODULE_MANAGER.report(this, e.toString(), Severity.WARN);
             }
         }
         setEnabled(true);
@@ -101,11 +101,16 @@ public class WindowedFullscreenModule extends Module {
                 Display.setDisplayMode(new DisplayMode(Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight));
                 Display.setResizable(true);
             } catch (LWJGLException e) {
-                ModuleManager.report(this, e.toString(), Severity.WARN);
+                Astoria.MODULE_MANAGER.report(this, e.toString(), Severity.WARN);
             }
         } else {
 
         }
         setEnabled(false);
+    }
+
+    @Override
+    public void shutdown() {
+
     }
 }

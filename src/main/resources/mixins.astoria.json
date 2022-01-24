@@ -6,5 +6,7 @@
   "verbose": true,
   "mixins": [
     "client.MixinMinecraft",
+    "client.MixinGuiNewChat",
+    "entity.MixinEntityPlayerSP"
   ]
 }
