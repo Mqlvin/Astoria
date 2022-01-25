@@ -12,28 +12,33 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------
-Called: When the client sends a message packet.
+Description: A utility class holding functions for chat components.
 Authors: [Mqlvin/melvinkelvin#6328]
 Modified: b0.4
 --------------------------------------------------------------------
 */
 
-package me.astoria.event.impl.entity;
+package me.astoria.util.chat;
 
-import me.astoria.event.EventCancelable;
+import joptsimple.internal.Strings;
+import org.apache.commons.lang3.StringUtils;
 
-public class PlayerChatEvent extends EventCancelable {
-    private String message;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
-    public PlayerChatEvent(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+public class ChatUtils {
+    public static String removeFormatting(String rawMessage) {
+        System.out.println(Instant.now().getEpochSecond());
+        ArrayList<String> parsedMessage = new ArrayList<>(Arrays.asList(rawMessage.split("")));
+        for(int i = 0; i < parsedMessage.size(); i++) {
+            if(parsedMessage.get(i).equals("§")) {
+                parsedMessage.remove(i);
+                parsedMessage.remove(i);
+                i -= 1;
+            }
+        }
+        return Strings.join(parsedMessage, "");
     }
 }

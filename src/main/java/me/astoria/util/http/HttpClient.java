@@ -38,7 +38,6 @@ public class HttpClient {
             }
             return new HttpResponse(builder.toString().replaceAll("<[^>]*>", ""));
         } catch(IOException e) {
-
             Logger.report("An exception was thrown during HTTP request. " + e, Severity.WARN);
             return new HttpResponse(e.toString());
         }

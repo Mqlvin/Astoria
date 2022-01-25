@@ -29,14 +29,20 @@ import me.astoria.util.http.HttpClient;
 import me.astoria.util.http.HttpResponse;
 
 public class PunishmentInfo {
+    private final HypixelAPI instance;
+
     private Integer watchdogLastMinute = 0;
     private Integer watchdogDaily = 0;
     private Integer watchdogTotal = 0;
     private Integer staffDaily = 0;
     private Integer staffTotal = 0;
 
-    public void refresh(HypixelAPI api) {
-        HttpResponse response = HttpClient.request("https://api.hypixel.net/punishmentstats?key=" + api.getKey());
+    public PunishmentInfo(HypixelAPI api) {
+        this.instance = api;
+    }
+
+    public void refresh() {
+        HttpResponse response = HttpClient.request("https://api.hypixel.net/punishmentstats?key=" + instance.getKey());
         if(response.response.contains("success")) {
             JsonObject responseObject = new JsonParser().parse(response.response).getAsJsonObject();
             if(responseObject.has("watchdog_lastMinute") && responseObject.has("staff_rollingDaily") && responseObject.has("watchdog_total") && responseObject.has("watchdog_rollingDaily") && responseObject.has("staff_total")) {
@@ -80,7 +86,7 @@ public class PunishmentInfo {
         return staffDaily;
     }
 
-    public void logData() {
+    public void dump() {
         Logger.log("Total: " + getTotalBans() + "\n" + "Total staff: " + getTotalStaffBans() + "\n" + "Total watchdog: " + getTotalWatchdogBans() + "\n" + "Daily staff: " + getStaffDailyBans() + "\n" + "Daily watchdog: " + getWatchdogDailyBans() + "\n" + "Minutely watchdog: " + getWatchdogLastMinuteBans());
     }
 }

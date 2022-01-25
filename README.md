@@ -43,8 +43,8 @@ GNU GENERAL PUBLIC LICENSE - Version 3, 29 June 2007
 
 You do not need to change anything in the license, however you will need to change the class information.
 - Description - Include a brief overview of the class, explaining roughly what it does. If you are editing a class, you may also add significant changes into the class description.
-- Authors - After contribution, you may add yourself to the author list. It follows a strict format of <name/contact>. Contact can be either a Discord tag or an email address. It is formatted as an array.
-- Modified - After contribution, you may also edit the modified tag to the client version. If you created a new class, simply make modified the version it was added.
+- Authors - After contribution, you may add yourself to the author list. It follows a strict format of <name/contact>. Contact can be either a Discord tag or an email address. The author list is formatted as an array, which can be seen in the example below.
+- Modified - After contribution, you may also edit the modified tag to the client version. Whether you made a new class or edited an existing one, change modified to the **current client version**.
 
 Below is an example of what to do if you are editing a class:
 
@@ -61,7 +61,6 @@ Malicious code includes, but is not limited to things such as:
 - Minecraft cheats
 - Ransomware
 - Token stealers / Key loggers
-- Data stealers
 - Cryptocurrency miners
 - Adware
 - Spyware
@@ -103,7 +102,8 @@ Do not add modules to the client directly, unless you feel they are core mods wh
 
 ## Development Status
 - [ ] Base Modules
-- [ ] Backend Module System
+- [x] Module System
+- [ ] Module Addon Loader
 - [ ] API Wrapper
 - [x] Event System
 - [ ] Notification System
@@ -111,7 +111,7 @@ Do not add modules to the client directly, unless you feel they are core mods wh
 - [ ] Main GUI
 - [ ] Cosmetic System
 
-###### *Note: Tick means at a usable standard, or fully developed. Some of those may have been started but are not currently in a usable state.*
+###### *Note: Tick means at a usable standard, or fully developed. Some items from the list may have been started but are not currently in a usable state.*
 
 ------------
 

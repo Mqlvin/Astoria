@@ -21,6 +21,7 @@ Modified: b0.3
 package me.astoria;
 
 import me.astoria.api.hypixel.HypixelAPI;
+import me.astoria.api.hypixel.player.PlayerInfo;
 import me.astoria.api.hypixel.punishment.PunishmentInfo;
 import me.astoria.client.modules.ModuleManager;
 import me.astoria.event.SubscribeEvent;
@@ -33,11 +34,14 @@ import me.astoria.event.impl.entity.PlayerChatEvent;
 import me.astoria.io.DirectoryUtil;
 import me.astoria.io.ModuleConfig;
 import me.astoria.log.Logger;
+import me.astoria.util.chat.ChatUtils;
+import me.astoria.util.http.HttpClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ChatComponentText;
 import org.lwjgl.input.Keyboard;
 
 import java.security.Key;
+import java.time.Instant;
 
 public class Astoria {
     public static final String NAME = "Astoria";
@@ -73,6 +77,13 @@ public class Astoria {
     @SubscribeEvent
     public void onLoad(ClientInitialisedEvent event) {
         Logger.log("Client successfully initialised. " + NAME + " (" + MINECRAFT_VERSION + "/" + VERSION + ")");
+        HYPIXEL_API = new HypixelAPI("", false);
+        PlayerInfo playerInfo = new PlayerInfo(HYPIXEL_API, "73d8f852c8cb4bbb95dc63a31967e4a3");
+        playerInfo.refresh();
+        System.out.println(playerInfo.getNetworkLevel());
+        System.out.println(playerInfo.getKarma());
+        System.out.println(playerInfo.getBuildBattleStats().getGamesPlayed());
+        System.out.println(playerInfo.getBuildBattleStats().getHasMusic());
     }
 
     @SubscribeEvent
@@ -111,19 +122,8 @@ public class Astoria {
     public void onChatMessageSent(PlayerChatEvent event) {
         if(event.getMessage().startsWith("--")) {
             Minecraft.getMinecraft().thePlayer.addChatComponentMessage(new ChatComponentText("§a§lDumping client info: "));
-        } else if(event.getMessage().startsWith("abc")) {
-            event.setMessage("123");
         } else {
             event.setMessage(event.getMessage().replace(":)", "☻"));
-        }
-    }
-
-    @SubscribeEvent
-    public void onChatMessageReceived(ChatReceivedEvent event) {
-        if(event.getMessage().getUnformattedText().startsWith("§a§lDumping client")) {
-            event.setMessage(new ChatComponentText("WORKING BY THAE WAY WOW"));
-        } else if(event.getMessage().getUnformattedText().contains("123")) {
-            event.cancel();
         }
     }
 }
